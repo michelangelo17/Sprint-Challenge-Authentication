@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const axiosWithAuth = () => {
   const token = localStorage.getItem('token')
-  const baseURL = 'http://localhost:8888/api'
+  const baseURL = process.env.REACT_APP_MAIN_URL
   return axios.create({
     baseURL: baseURL,
     headers: {
