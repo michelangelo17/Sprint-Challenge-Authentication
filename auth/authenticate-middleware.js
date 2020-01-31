@@ -1,4 +1,6 @@
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const { JWT_SECRET } = require('../env')
 const { findUser } = require('./model')
 
 const valBody = (req, res, next) => {
@@ -34,6 +36,7 @@ const validatePassword = async (req, res, next) => {
 }
 
 const authenticate = async (req, res, next) => {
+  const token = req.headers.authorization
   if (!token) {
     res.status(401).json({ message: 'You shall not pass!', token: false })
   }

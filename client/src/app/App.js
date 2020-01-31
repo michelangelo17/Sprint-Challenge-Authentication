@@ -7,7 +7,6 @@ import Home from './home/Home'
 import SignUp from './authComponents/newOrExisting/signUp/SignUp'
 import { useDispatch } from 'react-redux'
 import { setSignedIn } from '../redux/slices/authSlice'
-// import { customTheme } from './customTheme'
 
 const App = () => {
   const dispatch = useDispatch()

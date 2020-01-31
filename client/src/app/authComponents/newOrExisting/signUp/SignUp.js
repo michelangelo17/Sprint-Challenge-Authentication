@@ -20,7 +20,7 @@ import {
 const SignUp = () => {
   const dispatch = useDispatch()
   const { isLoading, welcomeMessage, postSignUpError } = useSelector(
-    state => state
+    state => state.auth
   )
   return (
     <Flex alignItems='center' flexDirection='column'>
@@ -31,14 +31,12 @@ const SignUp = () => {
         initialValues={{ username: '', password: '' }}
         validationSchema={signUpSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log(values)
           dispatch(setIsLoading(true))
           dispatch(postSignUp(values))
           resetForm()
         }}
       >
         {({ errors }) => {
-          console.log(errors)
           return (
             <Flex as={Form} flexDirection='column' w='50%' alignItems='center'>
               <FormControl isInvalid={errors.username}>

@@ -8,6 +8,7 @@ import {
   setGetLogoutError,
 } from '../slices/authSlice'
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
+import { getJokes } from './jokesThunks'
 
 export const checkToken = token => async dispatch => {
   if (!token) {
@@ -18,6 +19,7 @@ export const checkToken = token => async dispatch => {
   dispatch(setSignedIn(true))
   localStorage.setItem('token', token)
   localStorage.setItem('signedIn', true)
+  dispatch(getJokes())
 }
 
 export const postSignIn = values => async dispatch => {
