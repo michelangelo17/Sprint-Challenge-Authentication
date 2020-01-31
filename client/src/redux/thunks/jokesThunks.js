@@ -1,4 +1,4 @@
-import { setJokes, setIsLoading, setGetJokesError } from '../slices/jokesSlice'
+import { setJokes, setGetJokesError } from '../slices/jokesSlice'
 
 import { axiosWithAuth } from '../../utils/axiosWithAuth'
 
