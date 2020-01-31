@@ -9,7 +9,7 @@ const jokesRouter = require('../jokes/jokes-router.js')
 
 const server = express()
 
-server.use(express.static(path.join('../client/build')))
+server.use(express.static(path.resolve(__dirname, '../client/build')))
 
 server.use(helmet())
 server.use(cors())
@@ -19,7 +19,7 @@ server.use('/api/auth', authRouter)
 server.use('/api/jokes', authenticate, jokesRouter)
 
 server.get('*', (req, res) => {
-  res.sendFile(path.join('../client/build/index.html'))
+  res.sendFile(path.resolve(__dirname, '../client/build/index.html'))
 })
 
 module.exports = server
