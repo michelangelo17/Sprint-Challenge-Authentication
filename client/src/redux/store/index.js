@@ -4,7 +4,7 @@ import jokesReducer from '../slices/jokesSlice'
 
 const store = configureStore({
   reducer: { auth: authReducer, jokes: jokesReducer },
-  devTools: false,
+  devTools: process.env.NODE_ENV !== 'production',
 })
 
 export default store
